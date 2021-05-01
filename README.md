@@ -1,3 +1,3 @@
 # btxcode.github.io
 
-Suka Ati Kaulah Bujang
+Bereng Bereng Ma Kedan
