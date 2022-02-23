@@ -181,6 +181,25 @@
           animation: circular-loading-100 1.8s linear forwards 1.8s;
 }
 
+@-webkit-keyframes circular-loading-40 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes circular-loading-40 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+
 @-webkit-keyframes circular-loading-50 {
   0% {
     transform: rotate(0deg);
