@@ -121,6 +121,11 @@
   border-color: #ff7c7c;
 }
 
+.circular-progress-percentage-40 {
+  -webkit-animation: circular-loading-40 0s linear forwards 1.8s;
+          animation: circular-loading-40 0s linear forwards 1.8s;
+}
+
 .circular-progress-percentage-50 {
   -webkit-animation: circular-loading-50 0s linear forwards 1.8s;
           animation: circular-loading-50 0s linear forwards 1.8s;
