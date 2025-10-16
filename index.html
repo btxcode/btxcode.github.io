@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>btxcode</title>
+    <title>Guntur Parulian - IT Security Expert</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
         
         * {
             margin: 0;
@@ -16,298 +16,247 @@
         }
         
         body {
-            background: #000;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
+            color: #e2e8f0;
             overflow-x: hidden;
-            font-family: 'Fira Code', monospace;
         }
         
-        #matrix-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0.8;
+        .gradient-text {
+            background: linear-gradient(135deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
-        .main-container {
-            position: relative;
-            z-index: 10;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .glitch {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            font-size: 3.5rem;
-            text-transform: uppercase;
-            position: relative;
-            text-shadow: 
-                0.05em 0 0 rgba(255, 0, 0, 0.75),
-                -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
-                0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-            animation: glitch 500ms infinite;
-        }
-        
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .glitch::before {
-            animation: glitch-1 0.5s infinite;
-            color: #00ffff;
-            z-index: -1;
-        }
-        
-        .glitch::after {
-            animation: glitch-2 0.5s infinite;
-            color: #ff00ff;
-            z-index: -2;
-        }
-        
-        @keyframes glitch {
-            0%, 100% {
-                text-shadow: 
-                    0.05em 0 0 rgba(255, 0, 0, 0.75),
-                    -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-                    0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            14% {
-                text-shadow: 
-                    0.05em 0 0 rgba(255, 0, 0, 0.75),
-                    -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-                    0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            15% {
-                text-shadow: 
-                    -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-                    0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-                    -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            49% {
-                text-shadow: 
-                    -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-                    0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-                    -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            50% {
-                text-shadow: 
-                    0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-                    0.05em 0 0 rgba(0, 255, 0, 0.75),
-                    0 -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            99% {
-                text-shadow: 
-                    0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-                    0.05em 0 0 rgba(0, 255, 0, 0.75),
-                    0 -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-        }
-        
-        @keyframes glitch-1 {
-            0%, 100% {
-                clip: rect(132px, 350px, 101px, 30px);
-            }
-            20% {
-                clip: rect(33px, 350px, 84px, 30px);
-            }
-            40% {
-                clip: rect(55px, 350px, 23px, 30px);
-            }
-            60% {
-                clip: rect(12px, 350px, 67px, 30px);
-            }
-            80% {
-                clip: rect(88px, 350px, 45px, 30px);
-            }
-        }
-        
-        @keyframes glitch-2 {
-            0%, 100% {
-                clip: rect(65px, 350px, 119px, 30px);
-            }
-            20% {
-                clip: rect(92px, 350px, 31px, 30px);
-            }
-            40% {
-                clip: rect(45px, 350px, 88px, 30px);
-            }
-            60% {
-                clip: rect(23px, 350px, 56px, 30px);
-            }
-            80% {
-                clip: rect(77px, 350px, 102px, 30px);
-            }
-        }
-        
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s infinite;
-            color: #00ff00;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-        
-        .profile-card {
-            background: rgba(0, 0, 0, 0.9);
-            border: 2px solid #00ff00;
-            border-radius: 15px;
-            box-shadow: 
-                0 0 20px rgba(0, 255, 0, 0.5),
-                inset 0 0 20px rgba(0, 255, 0, 0.1);
-            backdrop-filter: blur(10px);
-            max-width: 900px;
-            width: 100%;
-            padding: 30px;
+        .hero-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
             position: relative;
             overflow: hidden;
         }
         
-        .profile-card::before {
+        .hero-section::before {
             content: '';
             position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #00ff00, #00ffff, #ff00ff, #00ff00);
-            border-radius: 15px;
-            opacity: 0.5;
-            z-index: -1;
-            animation: border-rotate 3s linear infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%2300ff88" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,112C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
         }
         
-        @keyframes border-rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .skill-badge {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            display: inline-block;
-            margin: 5px;
+        .skill-card {
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 20px;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            backdrop-filter: blur(10px);
         }
         
-        .skill-badge:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #00ff88;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
         }
         
-        .experience-item {
-            border-left: 3px solid #00ff00;
-            padding-left: 20px;
-            margin: 20px 0;
+        .experience-timeline {
             position: relative;
+            padding-left: 40px;
         }
         
-        .experience-item::before {
+        .experience-timeline::before {
             content: '';
             position: absolute;
-            left: -8px;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #00ff88, #00ccff);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: slideIn 0.6s forwards;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
             top: 5px;
-            width: 13px;
-            height: 13px;
-            background: #00ff00;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #00ff00;
-        }
-        
-        .text-green {
-            color: #00ff00;
-        }
-        
-        .text-cyan {
-            color: #00ffff;
-        }
-        
-        .terminal-header {
-            background: #1a1a1a;
-            padding: 10px;
-            border-radius: 10px 10px 0 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .terminal-dot {
             width: 12px;
             height: 12px;
+            background: #00ff88;
             border-radius: 50%;
+            border: 3px solid #0a0a0a;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
         }
         
-        .terminal-dot.red { background: #ff5f56; }
-        .terminal-dot.yellow { background: #ffbd2e; }
-        .terminal-dot.green { background: #27c93f; }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
         
-        .terminal-body {
-            background: #0a0a0a;
+        .tech-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .tech-icon:hover {
+            background: rgba(0, 255, 136, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .stat-card {
+            background: rgba(20, 20, 20, 0.7);
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
             padding: 20px;
-            border-radius: 0 0 10px 10px;
-            font-family: 'Fira Code', monospace;
-            min-height: 200px;
-        }
-        
-        .profile-img {
-            border: 3px solid #00ff00;
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+            text-align: center;
             transition: all 0.3s;
         }
         
-        .profile-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(0, 255, 0, 0.8);
+        .stat-card:hover {
+            transform: translateY(-3px);
+            border-color: #00ccff;
+            box-shadow: 0 10px 20px rgba(0, 204, 255, 0.2);
         }
         
-        .pulse {
-            animation: pulse 2s infinite;
+        .floating {
+            animation: float 3s ease-in-out infinite;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         
-        .cert-badge {
-            background: linear-gradient(135deg, #0a4d68 0%, #05bfdb 100%);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            display: inline-block;
-            margin: 3px;
+        .progress-bar {
+            height: 6px;
+            background: #2a2a2a;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88, #00ccff);
+            border-radius: 3px;
+            animation: progressGrow 1.5s ease-out;
+        }
+        
+        @keyframes progressGrow {
+            from { width: 0; }
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00ff88;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .read-more-btn {
+            background: linear-gradient(135deg, #00ff88, #00ccff);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(5, 191, 219, 0.3);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
         }
         
-        .cert-badge:hover {
+        .read-more-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(5, 191, 219, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+        }
+        
+        .experience-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .experience-details.expanded {
+            max-height: 500px;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .certification-badge {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border: 1px solid #00ff88;
+            border-radius: 12px;
+            padding: 15px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certification-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0,255,136,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+        
+        .certification-badge:hover::before {
+            animation: shine 0.5s;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
         
         .achievement-link {
-            color: #00ffff;
+            color: #00ccff;
             text-decoration: none;
             display: inline-block;
             margin: 5px 10px 5px 0;
@@ -315,328 +264,510 @@
         }
         
         .achievement-link:hover {
-            color: #ff00ff;
-            text-shadow: 0 0 5px #ff00ff;
+            color: #00ff88;
+            text-shadow: 0 0 5px #00ff88;
         }
     </style>
 </head>
 <body>
-    <canvas id="matrix-canvas"></canvas>
-    
-    <div class="main-container">
-        <div class="profile-card">
-            <!-- Terminal Header -->
-            <div class="terminal-header">
-                <div class="terminal-dot red"></div>
-                <div class="terminal-dot yellow"></div>
-                <div class="terminal-dot green"></div>
-                <span class="text-green text-sm ml-2">root@matrix:~$ security_profile.sh</span>
-            </div>
-            
-            <!-- Profile Content -->
-            <div class="terminal-body">
-                <div class="text-center mb-8">
-                    <h1 class="glitch text-green mb-4" data-text=" Curriculum Vitae"> Curriculum Vitae</h1>
-                    <img src="https://media.licdn.com/dms/image/v2/D5603AQHzHIExV_o6sA/profile-displayphoto-shrink_200_200/B56ZaQj9xZHsAg-/0/1746182071540?e=1763596800&v=beta&t=v5y0uLm8XP0WxFaLGl1bmkQ-5TL8mKg32Np9_eUdYtw" 
-                         alt="Profile" 
-                         class="profile-img w-32 h-32 mx-auto mb-4">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-gray-900">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-shield-alt text-green-400 text-2xl"></i>
+                    <span class="text-xl font-bold">Security Portfolio</span>
                 </div>
-                
-                <div id="typing-content" class="text-green typing-cursor"></div>
-                
-                <div class="mt-8">
-                    <h3 class="text-cyan text-xl mb-4 font-bold">
-                        <i class="fas fa-shield-alt mr-2"></i>Security Skills
-                    </h3>
-                    <div id="skills-container" class="flex flex-wrap"></div>
-                </div>
-                
-                <div class="mt-8">
-                    <h3 class="text-cyan text-xl mb-4 font-bold">
-                        <i class="fas fa-briefcase mr-2"></i>Experience
-                    </h3>
-                    <div id="experience-container"></div>
-                </div>
-                
-                <div class="mt-8">
-                    <h3 class="text-cyan text-xl mb-4 font-bold">
-                        <i class="fas fa-certificate mr-2"></i>Certifications
-                    </h3>
-                    <div id="certifications-container" class="flex flex-wrap"></div>
-                </div>
-                
-                <div class="mt-8">
-                    <h3 class="text-cyan text-xl mb-4 font-bold">
-                        <i class="fas fa-trophy mr-2"></i>Achievements
-                    </h3>
-                    <div id="achievements-container"></div>
-                </div>
-                
-                <div class="mt-8">
-                    <h3 class="text-cyan text-xl mb-4 font-bold">
-                        <i class="fas fa-graduation-cap mr-2"></i>Education
-                    </h3>
-                    <div id="education-container"></div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-gray-400 hover:text-white">About</a>
+                    <a href="#skills" class="nav-link text-gray-400 hover:text-white">Skills</a>
+                    <a href="#experience" class="nav-link text-gray-400 hover:text-white">Experience</a>
+                    <a href="#certifications" class="nav-link text-gray-400 hover:text-white">Certifications</a>
+                    <a href="#achievements" class="nav-link text-gray-400 hover:text-white">Achievements</a>
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-section pt-24 pb-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4">
+                        Hi, I'm <span class="gradient-text">Guntur Parulian</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl text-green-400 mb-6">IT Security - Blueteam</h2>
+                    <p class="text-gray-300 mb-8 text-lg">
+                        Working in the field of Cyber Security (Blueteam). I love learning and looking for my next challenge. 
+                        The more I learn, the more Network Security/Cyber Security becomes my passion, because my ambition 
+                        has always been to help people and try to make the world a better place.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-map-marker-alt mr-2 text-green-400"></i>
+                            Jakarta, Indonesia
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-envelope mr-2 text-cyan-400"></i>
+                            gunturparulianp@gmail.com
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-phone mr-2 text-green-400"></i>
+                            +6285718123876
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/in/gunturp" target="_blank" 
+                           class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg transition-all transform hover:scale-105">
+                            <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                        </a>
+                        <a href="#" class="border border-green-500 hover:bg-green-500/20 px-6 py-3 rounded-lg transition-all">
+                            <i class="fas fa-download mr-2"></i>Download CV
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <img src="data:image/png;base64,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" 
+                             alt="Profile" 
+                             class="w-64 h-64 rounded-full border-4 border-green-500 shadow-2xl floating">
+                        <div class="absolute -bottom-4 -right-4 bg-cyan-500 text-black px-4 py-2 rounded-full font-semibold">
+                            <i class="fas fa-check-circle mr-1"></i>Available
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="py-12 bg-black/50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="stat-card">
+                    <div class="text-3xl font-bold text-green-400">5+</div>
+                    <div class="text-gray-400">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-3xl font-bold text-cyan-400">10+</div>
+                    <div class="text-gray-400">Certifications</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-3xl font-bold text-green-400">100+</div>
+                    <div class="text-gray-400">Security Audits</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-3xl font-bold text-cyan-400">24/7</div>
+                    <div class="text-gray-400">SOC Monitoring</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <span class="gradient-text">Security Skills</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="skill-card">
+                    <div class="flex items-center mb-4">
+                        <div class="tech-icon mr-4">
+                            <i class="fas fa-shield-alt text-2xl text-green-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg">Security Analysis</h3>
+                            <p class="text-gray-400 text-sm">Threat Detection</p>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 95%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="flex items-center mb-4">
+                        <div class="tech-icon mr-4">
+                            <i class="fas fa-search text-2xl text-cyan-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg">Vulnerability Assessment</h3>
+                            <p class="text-gray-400 text-sm">Penetration Testing</p>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="flex items-center mb-4">
+                        <div class="tech-icon mr-4">
+                            <i class="fas fa-lock text-2xl text-green-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg">Infrastructure Hardening</h3>
+                            <p class="text-gray-400 text-sm">System Security</p>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 88%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="flex items-center mb-4">
+                        <div class="tech-icon mr-4">
+                            <i class="fas fa-exclamation-triangle text-2xl text-cyan-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg">Incident Response</h3>
+                            <p class="text-gray-400 text-sm">Emergency Handling</p>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 92%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="flex items-center mb-4">
+                        <div class="tech-icon mr-4">
+                            <i class="fas fa-microscope text-2xl text-green-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg">Digital Forensic</h3>
+                            <p class="text-gray-400 text-sm">Evidence Analysis</p>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="flex items-center mb-4">
+                        <div class="tech-icon mr-4">
+                            <i class="fas fa-cloud text-2xl text-cyan-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg">Cloud Security</h3>
+                            <p class="text-gray-400 text-sm">AWS Security</p>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 87%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-black/30">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <span class="gradient-text">Professional Experience</span>
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="experience-timeline">
+                    <div class="timeline-item" style="animation-delay: 0.1s">
+                        <div class="bg-gray-900 rounded-lg p-6 border border-gray-800">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-green-400">Senior IT Security</h3>
+                                    <p class="text-gray-400">PT MNC OTT Network (Vision+ / MNC Group)</p>
+                                </div>
+                                <span class="text-sm text-gray-500">Feb 2023 - present</span>
+                            </div>
+                            <ul class="text-gray-300 space-y-2 text-sm">
+                                <li>• Conduct regular security assessments for VOD and TV Channel systems</li>
+                                <li>• Implement and manage security monitoring tools for real-time incident detection</li>
+                                <li>• Ensure compliance with industry-specific regulations</li>
+                            </ul>
+                            <div class="experience-details" id="exp-details-1">
+                                <ul class="text-gray-300 space-y-2 text-sm mt-3 fade-in">
+                                    <li>• Develop and maintain incident response plan with escalation procedures</li>
+                                    <li>• Design and maintain secure network architectures for content delivery</li>
+                                    <li>• Ensure and implement all appropriate security standards in AWS</li>
+                                    <li>• Conduct security awareness training for employees</li>
+                                    <li>• Coordinate security audits and assessments (ISO 27001, NIST)</li>
+                                    <li>• Installing and tuning Wazuh to monitor devices and infrastructure</li>
+                                    <li>• Coordinating with MNC Group Security Team regarding SOC 24/7</li>
+                                </ul>
+                            </div>
+                            <button class="read-more-btn mt-3" onclick="toggleExperience('exp-details-1', this)">
+                                <span>Read More</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" style="animation-delay: 0.2s">
+                        <div class="bg-gray-900 rounded-lg p-6 border border-gray-800">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-green-400">Lead Team – Cybersecurity Blueteam L2</h3>
+                                    <p class="text-gray-400">PT Proteksi Siber Global (Spentera Group)</p>
+                                </div>
+                                <span class="text-sm text-gray-500">Aug 2020 – Feb 2023</span>
+                            </div>
+                            <ul class="text-gray-300 space-y-2 text-sm">
+                                <li>• Lead development of security measures for data, systems and networks protection</li>
+                                <li>• Ensure organization's data and infrastructure protection with appropriate controls</li>
+                                <li>• Perform security analyst at Layer 2 and daily administrative tasks</li>
+                            </ul>
+                            <div class="experience-details" id="exp-details-2">
+                                <ul class="text-gray-300 space-y-2 text-sm mt-3 fade-in">
+                                    <li>• Installation and tuning of opensource SIEM (ELK, WAZUH, SecurityOnion)</li>
+                                    <li>• Threat hunting before and after incidents</li>
+                                    <li>• Create internal procedures for ISO 270001 for Bank</li>
+                                    <li>• Vulnerability Assessment and Penetration Testing for bank</li>
+                                    <li>• Hardening Infrastructure and implementation for company and bank</li>
+                                    <li>• Forensic Examiner for government</li>
+                                    <li>• Forensic Analysis for Company</li>
+                                    <li>• Compromised Assessments for Company and Bank</li>
+                                </ul>
+                            </div>
+                            <button class="read-more-btn mt-3" onclick="toggleExperience('exp-details-2', this)">
+                                <span>Read More</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" style="animation-delay: 0.3s">
+                        <div class="bg-gray-900 rounded-lg p-6 border border-gray-800">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-green-400">Junior Penetration Tester</h3>
+                                    <p class="text-gray-400">PT Spentera (Spentera Group)</p>
+                                </div>
+                                <span class="text-sm text-gray-500">May 2020 - Jul 2020</span>
+                            </div>
+                            <ul class="text-gray-300 space-y-2 text-sm">
+                                <li>• Network Pentest for Bank</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <span class="gradient-text">Certifications</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="certification-badge">
+                    <div class="flex items-center">
+                        <i class="fas fa-certificate text-3xl text-green-400 mr-4"></i>
+                        <div>
+                            <h3 class="font-semibold">Certified Network Defender</h3>
+                            <p class="text-gray-400 text-sm">EC-Council</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certification-badge">
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt text-3xl text-cyan-400 mr-4"></i>
+                        <div>
+                            <h3 class="font-semibold">Certified SOC Analyst</h3>
+                            <p class="text-gray-400 text-sm">EC-Council</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certification-badge">
+                    <div class="flex items-center">
+                        <i class="fas fa-network-wired text-3xl text-green-400 mr-4"></i>
+                        <div>
+                            <h3 class="font-semibold">Cybersecurity Essentials</h3>
+                            <p class="text-gray-400 text-sm">Cisco Networking Academy</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certification-badge">
+                    <div class="flex items-center">
+                        <i class="fab fa-google text-3xl text-cyan-400 mr-4"></i>
+                        <div>
+                            <h3 class="font-semibold">Google IT Support</h3>
+                            <p class="text-gray-400 text-sm">Coursera</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certification-badge">
+                    <div class="flex items-center">
+                        <i class="fas fa-lock text-3xl text-green-400 mr-4"></i>
+                        <div>
+                            <h3 class="font-semibold">IBM Security Fundamentals</h3>
+                            <p class="text-gray-400 text-sm">IBM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certification-badge">
+                    <div class="flex items-center">
+                        <i class="fas fa-user-shield text-3xl text-cyan-400 mr-4"></i>
+                        <div>
+                            <h3 class="font-semibold">Network Security Specialist</h3>
+                            <p class="text-gray-400 text-sm">ICSI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20 bg-black/30">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <span class="gradient-text">Achievements</span>
+            </h2>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="flex flex-wrap">
+                    <a href="https://blueteamlabs.online/home/user/f99a5a5f8df8c71bc5dd24" 
+                       target="_blank" class="achievement-link">
+                        <i class="fas fa-external-link-alt mr-1"></i>BlueteamLabs
+                    </a>
+                    <a href="https://app.hackthebox.com/profile/284315" 
+                       target="_blank" class="achievement-link">
+                        <i class="fas fa-external-link-alt mr-1"></i>HackTheBox
+                    </a>
+                    <a href="#" class="achievement-link">
+                        <i class="fas fa-shield-alt mr-1"></i>Cybersecurity Monitoring G20 Bali
+                    </a>
+                    <a href="#" class="achievement-link">
+                        <i class="fas fa-bug mr-1"></i>Bug Bounty Hunter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <span class="gradient-text">Education</span>
+            </h2>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-gray-900 rounded-lg p-8 border border-gray-800">
+                    <div class="flex items-start">
+                        <div class="tech-icon mr-6">
+                            <i class="fas fa-graduation-cap text-2xl text-green-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Computer Engineering</h3>
+                            <p class="text-gray-400">Politeknik Negeri Medan</p>
+                            <p class="text-gray-500 text-sm mt-2">2012 - 2015 | GPA: 3.02</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-900 py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-400 mb-4 md:mb-0">
+                    © 2024 Guntur Parulian. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.linkedin.com/in/gunturp" target="_blank" 
+                       class="text-gray-400 hover:text-green-400 transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://blueteamlabs.online/home/user/f99a5a5f8df8c71bc5dd24" 
+                       target="_blank" class="text-gray-400 hover:text-green-400 transition-colors">
+                        <i class="fas fa-globe text-xl"></i>
+                    </a>
+                    <a href="https://app.hackthebox.com/profile/284315" 
+                       target="_blank" class="text-gray-400 hover:text-green-400 transition-colors">
+                        <i class="fas fa-cube text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
     
     <script>
-        // Matrix Rain Effect
-        const canvas = document.getElementById('matrix-canvas');
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
-        const matrixArray = matrix.split("");
-        
-        const fontSize = 10;
-        const columns = canvas.width / fontSize;
-        
-        const drops = [];
-        for(let x = 0; x < columns; x++) {
-            drops[x] = 1;
-        }
-        
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Toggle Experience Details
+        function toggleExperience(id, button) {
+            const details = document.getElementById(id);
+            const icon = button.querySelector('i');
+            const text = button.querySelector('span');
             
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px monospace';
-            
-            for(let i = 0; i < drops.length; i++) {
-                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                
-                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
+            if (details.classList.contains('expanded')) {
+                details.classList.remove('expanded');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+                text.textContent = 'Read More';
+            } else {
+                details.classList.add('expanded');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+                text.textContent = 'Read Less';
             }
         }
         
-        setInterval(drawMatrix, 35);
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
         
-        // Typing Animation
-        const profileData = {
-            name: "Guntur Parulian P",
-            title: "IT Security - Blueteam",
-            location: "Jakarta, Indonesia",
-            contact: "+6285718123876 | gunturparulianp@gmail.com",
-            linkedin: "https://www.linkedin.com/in/gunturp",
-            summary: "Working in the field of Cyber Security (Blueteam). I love learning and looking for my next challenge. The more I learn, the more Network Security/Cyber Security becomes my passion, because my ambition has always been to help people and try to make the world a better place.",
-            skills: [
-                "Teamwork and Leadership", 
-                "Troubleshooting", 
-                "Security Analyst", 
-                "Vulnerability Assessment", 
-                "Hardening", 
-                "Incident Handling and Response", 
-                "Digital Forensic", 
-                "Security Operation", 
-                "Cloud", 
-                "SIEM"
-            ],
-            experiences: [
-                {
-                    company: "PT MNC OTT Network (Vision+ / MNC Group)",
-                    position: "Senior IT Security",
-                    period: "Feb 2023 - present",
-                    responsibilities: [
-                        "Conduct regular security assessments to identify vulnerabilities and weaknesses in VOD and TV Channel systems",
-                        "Implement and manage security monitoring tools to detect and respond to security incidents in real-time",
-                        "Ensure compliance with industry-specific regulations related to media content and user data",
-                        "Develop and maintain an incident response plan",
-                        "Design and maintain secure network architectures for content delivery",
-                        "Ensure and implement all appropriate security standards in AWS",
-                        "Conduct security awareness training for employees",
-                        "Coordinate security audits and assessments",
-                        "Installing and tuning Wazuh to monitor devices and infrastructure on prem and cloud (AWS)"
-                    ]
-                },
-                {
-                    company: "PT Proteksi Siber Global (Spentera Group)",
-                    position: "Lead Team – Cybersecurity Blueteam L2",
-                    period: "Aug 2020 – Feb 2023",
-                    responsibilities: [
-                        "Lead the development of planning, implementation, management, monitoring, and improvement of security measures",
-                        "Ensuring that the organization's data and infrastructure are protected by enabling the appropriate security controls",
-                        "Perform security analyst at Layer 2 and Daily administrative tasks",
-                        "Installation and tuning of opensource SIEM (ELK, WAZUH, SecurityOnion)",
-                        "Threat hunting before and after the incident",
-                        "Create internal procedures for ISO 270001 for Bank",
-                        "Vulnerability Assessment and Penetration Testing for bank",
-                        "Hardening Infrastructure and implementation for company and bank"
-                    ]
-                },
-                {
-                    company: "PT Spentera (Spentera Group)",
-                    position: "Junior Penetration Tester",
-                    period: "May 2020 - Jul 2020",
-                    responsibilities: [
-                        "Network Pentest for Bank"
-                    ]
-                }
-            ],
-            certifications: [
-                "Certified Network Defender (EC-Council)",
-                "Certified SOC Analyst (EC-Council)",
-                "Cybersecurity Essentials (Cisco Networking Academy)",
-                "Google IT Support Specialization (Coursera)",
-                "IBM Security Analyt Fundamentals (IBM)",
-                "Certified Network Security Specialist (ICSI)",
-                "BINTALFISDIS (TNI)"
-            ],
-            achievements: [
-                {
-                    name: "BlueteamLabs",
-                    url: "https://blueteamlabs.online/home/user/f99a5a5f8df8c71bc5dd24"
-                },
-                {
-                    name: "HackTheBox",
-                    url: "https://app.hackthebox.com/profile/284315"
-                },
-                {
-                    name: "Cybersecurity Monitoring Event G20 Bali with BSSN",
-                    url: "#"
-                },
-                {
-                    name: "Bug Bounty Hackerone",
-                    url: "#"
-                }
-            ],
-            education: [
-                {
-                    institution: "Politeknik Negeri Medan",
-                    degree: "Computer Engineering",
-                    period: "2012 - 2015",
-                    gpa: "GPA 3.02"
-                }
-            ]
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
         
-        let typingIndex = 0;
-        let currentText = "";
-        const typingElement = document.getElementById('typing-content');
-        
-        function typeWriter() {
-            const fullText = `
-> Initializing security profile system...
-> Loading data from secure database...
-> Verifying credentials...
-> 
-> Name: ${profileData.name}
-> Title: ${profileData.title}
-> Location: ${profileData.location}
-> Contact: ${profileData.contact}
-> LinkedIn: ${profileData.linkedin}
-> 
-> ${profileData.summary}
-> 
-> System ready. All security modules loaded successfully.
-            `;
-            
-            if (typingIndex < fullText.length) {
-                currentText += fullText.charAt(typingIndex);
-                typingElement.innerHTML = currentText.replace(/\n/g, '<br>');
-                typingIndex++;
-                setTimeout(typeWriter, 30);
-            } else {
-                typingElement.classList.remove('typing-cursor');
-                loadSkills();
-                loadExperience();
-                loadCertifications();
-                loadAchievements();
-                loadEducation();
-            }
-        }
-        
-        function loadSkills() {
-            const skillsContainer = document.getElementById('skills-container');
-            profileData.skills.forEach((skill, index) => {
-                setTimeout(() => {
-                    const badge = document.createElement('span');
-                    badge.className = 'skill-badge pulse';
-                    badge.innerHTML = `<i class="fas fa-shield-virus mr-1"></i>${skill}`;
-                    skillsContainer.appendChild(badge);
-                }, index * 200);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
             });
-        }
+        }, observerOptions);
         
-        function loadExperience() {
-            const experienceContainer = document.getElementById('experience-container');
-            profileData.experiences.forEach((exp, expIndex) => {
-                setTimeout(() => {
-                    const expDiv = document.createElement('div');
-                    expDiv.className = 'experience-item';
-                    expDiv.innerHTML = `
-                        <h4 class="text-green font-bold text-lg">${exp.position}</h4>
-                        <p class="text-cyan">${exp.company}</p>
-                        <p class="text-gray-400 text-sm">${exp.period}</p>
-                        <ul class="mt-2 text-gray-300 text-sm">
-                            ${exp.responsibilities.slice(0, 3).map(resp => `<li class="mb-1">• ${resp}</li>`).join('')}
-                            ${exp.responsibilities.length > 3 ? `<li class="text-gray-500">... and ${exp.responsibilities.length - 3} more</li>` : ''}
-                        </ul>
-                    `;
-                    experienceContainer.appendChild(expDiv);
-                }, expIndex * 500);
-            });
-        }
-        
-        function loadCertifications() {
-            const certificationsContainer = document.getElementById('certifications-container');
-            profileData.certifications.forEach((cert, index) => {
-                setTimeout(() => {
-                    const badge = document.createElement('span');
-                    badge.className = 'cert-badge pulse';
-                    badge.innerHTML = `<i class="fas fa-certificate mr-1"></i>${cert}`;
-                    certificationsContainer.appendChild(badge);
-                }, index * 150);
-            });
-        }
-        
-        function loadAchievements() {
-            const achievementsContainer = document.getElementById('achievements-container');
-            profileData.achievements.forEach((achievement, index) => {
-                setTimeout(() => {
-                    const link = document.createElement('a');
-                    link.href = achievement.url;
-                    link.className = 'achievement-link';
-                    link.target = '_blank';
-                    link.innerHTML = `<i class="fas fa-external-link-alt mr-1"></i>${achievement.name}`;
-                    achievementsContainer.appendChild(link);
-                }, index * 200);
-            });
-        }
-        
-        function loadEducation() {
-            const educationContainer = document.getElementById('education-container');
-            profileData.education.forEach((edu, index) => {
-                setTimeout(() => {
-                    const eduDiv = document.createElement('div');
-                    eduDiv.className = 'mb-3';
-                    eduDiv.innerHTML = `
-                        <h4 class="text-green font-bold">${edu.institution}</h4>
-                        <p class="text-cyan">${edu.degree}</p>
-                        <p class="text-gray-400 text-sm">${edu.period} | ${edu.gpa}</p>
-                    `;
-                    educationContainer.appendChild(eduDiv);
-                }, index * 300);
-            });
-        }
-        
-        // Start typing animation
-        setTimeout(typeWriter, 1000);
-        
-        // Resize canvas on window resize
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+        // Observe all cards
+        document.querySelectorAll('.skill-card, .stat-card, .certification-badge').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
         });
+        
+        // Dynamic year in footer
+        const currentYear = new Date().getFullYear();
+        document.querySelector('footer .text-gray-400').innerHTML = 
+            `© ${currentYear} Guntur Parulian. All rights reserved.`;
     </script>
 </body>
 </html>
